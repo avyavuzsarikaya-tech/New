@@ -7,8 +7,8 @@ export default {
 
   // Bölümler: id adreste görünür (/sections/health/), başlıklar her dilde ayrı.
   sections: [
-    { id: 'environment', en: 'Environment', tr: 'Çevre',
-      blurb: { en: 'The earth we share and the trust we hold it in.', tr: 'Paylaştığımız yeryüzü ve ona karşı emanetimiz.' } },
+    { id: 'environment', en: 'Environment & Climate', tr: 'Çevre ve İklim',
+      blurb: { en: 'The earth we share, the climate we are changing, and the trust we hold it in.', tr: 'Paylaştığımız yeryüzü, değiştirdiğimiz iklim ve ona karşı emanetimiz.' } },
     { id: 'technology', en: 'Science & Technology', tr: 'Bilim ve Teknoloji',
       blurb: { en: 'Discovery, invention and what our tools are doing to us, and for us.', tr: 'Keşifler, icatlar ve araçlarımızın bize ve bizim için yaptıkları.' } },
     { id: 'society', en: 'Society', tr: 'Toplum',
