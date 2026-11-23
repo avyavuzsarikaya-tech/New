@@ -4,7 +4,7 @@ lang: tr
 key: peace
 slug: silahlar-sustugunda
 issue: 5
-section: peace
+section: society
 author: Editörler
 date: 2026-08-01
 featured: true

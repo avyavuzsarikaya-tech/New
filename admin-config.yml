@@ -26,12 +26,11 @@ collections:
         label: Bölüm
         widget: select
         options:
-          - { label: "Adalet ve Haklar / Justice & Rights", value: justice }
           - { label: "Çevre / Environment", value: environment }
-          - { label: "Teknoloji ve Etik / Technology & Ethics", value: technology }
+          - { label: "Bilim ve Teknoloji / Science & Technology", value: technology }
           - { label: "Toplum / Society", value: society }
           - { label: "Ekonomi / Economy", value: economy }
-          - { label: "Barış ve Çatışma / Peace & Conflict", value: peace }
+          - { label: "Beslenme ve Sağlık / Nutrition & Health", value: health }
       - { name: author, label: Yazar, widget: string, required: false }
       - { name: date, label: Yayın tarihi, widget: datetime }
       - { name: standfirst, label: Spot (kısa giriş), widget: text, required: false }

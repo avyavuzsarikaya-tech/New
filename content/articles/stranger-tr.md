@@ -4,7 +4,7 @@ lang: tr
 key: stranger
 slug: hukuk-yabanciyla-baslar
 issue: 8
-section: justice
+section: society
 author: Editörler
 date: 2026-10-28
 standfirst: Bir hukuk düzeninin gerçek karakteri güçlülere nasıl davrandığında değil, kendisini savunacak kimsesi olmayanlara nasıl davrandığında görünür.

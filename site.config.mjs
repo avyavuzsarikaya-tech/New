@@ -5,20 +5,18 @@ export default {
   // Dergi dilleri. İlk dil ana adreste (/), diğerleri /tr/ gibi alt adreste yayınlanır.
   languages: ['en', 'tr'],
 
-  // Bölümler: id adreste görünür (/sections/justice/), başlıklar her dilde ayrı.
+  // Bölümler: id adreste görünür (/sections/health/), başlıklar her dilde ayrı.
   sections: [
-    { id: 'justice', en: 'Justice & Rights', tr: 'Adalet ve Haklar',
-      blurb: { en: 'Law, dignity and the rights every person is owed.', tr: 'Hukuk, onur ve her insanın hakkı olan haklar.' } },
     { id: 'environment', en: 'Environment', tr: 'Çevre',
       blurb: { en: 'The earth we share and the trust we hold it in.', tr: 'Paylaştığımız yeryüzü ve ona karşı emanetimiz.' } },
-    { id: 'technology', en: 'Technology & Ethics', tr: 'Teknoloji ve Etik',
-      blurb: { en: 'What our tools are doing to us, and for us.', tr: 'Araçlarımızın bize ve bizim için yaptıkları.' } },
+    { id: 'technology', en: 'Science & Technology', tr: 'Bilim ve Teknoloji',
+      blurb: { en: 'Discovery, invention and what our tools are doing to us, and for us.', tr: 'Keşifler, icatlar ve araçlarımızın bize ve bizim için yaptıkları.' } },
     { id: 'society', en: 'Society', tr: 'Toplum',
       blurb: { en: 'Family, community and the ties that hold us together.', tr: 'Aile, topluluk ve bizi bir arada tutan bağlar.' } },
     { id: 'economy', en: 'Economy', tr: 'Ekonomi',
       blurb: { en: 'Wealth, work, poverty and fairness.', tr: 'Servet, emek, yoksulluk ve hakkaniyet.' } },
-    { id: 'peace', en: 'Peace & Conflict', tr: 'Barış ve Çatışma',
-      blurb: { en: 'War, reconciliation and the long road to peace.', tr: 'Savaş, uzlaşma ve barışa giden uzun yol.' } },
+    { id: 'health', en: 'Nutrition & Health', tr: 'Beslenme ve Sağlık',
+      blurb: { en: 'What we eat, how we heal, and the body held in trust.', tr: 'Ne yediğimiz, nasıl iyileştiğimiz ve emanet olarak bedenimiz.' } },
   ],
 
   // Üyelik paketleri. Fiyatlar ÖRNEKTİR; ödeme altyapısı seçilince joinUrl'e ödeme bağlantısı yazılır.

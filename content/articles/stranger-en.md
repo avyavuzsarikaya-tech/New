@@ -4,7 +4,7 @@ lang: en
 key: stranger
 slug: the-law-begins-with-the-stranger
 issue: 8
-section: justice
+section: society
 author: The Editors
 date: 2026-10-28
 standfirst: A legal system shows its true character not in how it treats the powerful, but in how it treats those with no one to speak for them.

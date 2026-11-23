@@ -4,7 +4,7 @@ lang: en
 key: peace
 slug: when-the-guns-fall-silent
 issue: 5
-section: peace
+section: society
 author: The Editors
 date: 2026-08-01
 featured: true
