@@ -314,6 +314,9 @@
         var hay = norm([d.t, d.s, d.a, d.sec, d.x].join(' '));
         return terms.every(function (term) { return hay.indexOf(term) !== -1; });
       });
+      // Aynı yazının iki dili de eşleşirse yalnızca sitenin dilindekini göster (dizinde önce o gelir).
+      var seen = {};
+      res = res.filter(function (d) { if (seen[d.k]) return false; seen[d.k] = true; return true; });
       out.innerHTML = res.length
         ? res.map(function (d) { return '<li>' + (d.sec ? '<span class="kicker">' + esc(d.sec) + '</span>' : '') + '<h2><a href="' + esc(d.u) + '"' + (d.l ? ' hreflang="' + esc(d.l.toLowerCase()) + '"' : '') + '>' + esc(d.t) + (d.l ? ' <small class="search-lang">' + esc(d.l) + '</small>' : '') + '</a></h2><p>' + esc(d.s) + '</p></li>'; }).join('')
         : '<li><p>' + esc(form.dataset.empty) + '</p></li>';

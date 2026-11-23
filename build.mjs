@@ -60,22 +60,16 @@ for (const lang of langs) {
   if (lang === langs[0]) page('404.html', R.notFoundPage(c));
 
   // Arama dizini
-  // Arama dizini: her yazı kendi dilindeki metniyle birlikte çevirisinin metnini de taşır;
-  // böylece Türkçe sitede İngilizce bir kelimeyle (ya da tersi) arayınca da yazı bulunur.
+  // Arama dizini: tüm dillerdeki yazılar, her biri kendi metniyle. Aranan kelime hangi dildeki
+  // metinde geçiyorsa o dildeki yazı gösterilir; iki dilde de geçiyorsa sitenin dilindeki gösterilir.
   const plain = (a) => `${a.title} ${a.standfirst || ''} ${a.html.replace(/<[^>]+>/g, ' ')}`.replace(/\s+/g, ' ').slice(0, 2500);
-  const entry = (a, l) => {
-    const others = articles.filter((x) => x.key === a.key && x !== a);
-    return {
-      t: a.title, s: a.standfirst, a: a.author, sec: c.sectionName(a.section), i: a.issue,
-      u: `${BASE}${prefix(l)}${R.paths.article(a)}`, x: [plain(a), ...others.map(plain)].join(' '),
-      ...(l !== lang ? { l: l.toUpperCase() } : {}),
-    };
-  };
-  const untranslated = articles.filter((a) => a.lang !== lang && !own.some((o) => o.key === a.key));
-  write(`${P}/search-index.json`.replace(/^\//, ''), JSON.stringify([
-    ...own.map((a) => entry(a, lang)),
-    ...untranslated.map((a) => entry(a, a.lang)),
-  ]));
+  const ordered = [...own, ...articles.filter((a) => a.lang !== lang)];
+  write(`${P}/search-index.json`.replace(/^\//, ''), JSON.stringify(ordered.map((a) => ({
+    k: a.key || `${a.lang}-${a.slug || a.title}`, t: a.title, s: a.standfirst, a: a.author,
+    sec: R.makeCtx({ lang: a.lang, base: BASE, siteUrl: SITE_URL, artRegistry }).sectionName(a.section), i: a.issue,
+    u: `${BASE}${prefix(a.lang)}${R.paths.article(a)}`, x: plain(a),
+    ...(a.lang !== lang ? { l: a.lang.toUpperCase() } : {}),
+  }))));
 
   // RSS
   const abs = (p) => (SITE_URL ? `${SITE_URL}${P}${p}` : `${P}${p}`);
