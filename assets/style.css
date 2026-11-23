@@ -135,6 +135,23 @@ h1, h2, h3, h4 { margin: 0; font-weight: 500; }
 
 /* ===== Bölümler ===== */
 .sections-band { padding: 0 0 80px; }
+/* Ana sayfa: güncel sayı + alt alta yazılar */
+.current-issue { padding: 48px 0 56px; }
+.current-grid { display: grid; grid-template-columns: minmax(260px, 380px) 1fr; gap: 64px; align-items: center; }
+.current-title { font-family: var(--serif-display); font-size: clamp(40px, 5.5vw, 68px); line-height: 1.02; font-style: italic; margin-bottom: 4px; }
+.current-intro .btn { margin-top: 28px; }
+.issue-stories { padding-bottom: 72px; }
+.story-list { list-style: none; margin: 0; padding: 0; }
+.story-row { display: grid; grid-template-columns: 260px 1fr; gap: 32px; align-items: center; padding: 28px 0; border-bottom: 1px solid var(--line); }
+.story-row:first-child { padding-top: 4px; }
+.story-media { display: block; aspect-ratio: 3 / 2; overflow: hidden; border-radius: 2px; background: var(--paper-2); }
+.story-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.story-row:hover .story-media img { transform: scale(1.04); }
+.story-title { font-family: var(--serif-display); font-size: 30px; line-height: 1.12; margin-bottom: 10px; }
+.story-standfirst { margin: 0 0 12px; font-family: var(--serif); font-size: 17px; line-height: 1.5; color: var(--muted); }
+.home-past { padding-top: 72px; }
+.home-earlier { padding-top: 56px; padding-bottom: 80px; }
+
 .sections-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
 .section-tile:last-child:nth-child(3n+2) { grid-column: span 2; }
 .section-tile:last-child:nth-child(3n+1) { grid-column: span 3; }
@@ -331,6 +348,8 @@ h1, h2, h3, h4 { margin: 0; font-weight: 500; }
   .main-nav ul { gap: 20px; }
 }
 @media (max-width: 960px) {
+  .current-grid { gap: 36px; grid-template-columns: minmax(220px, 300px) 1fr; }
+  .story-row { grid-template-columns: 200px 1fr; gap: 24px; }
   .menu-toggle { display: inline-flex; }
   .main-nav { position: fixed; inset: 64px 0 auto 0; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 24px 24px; background: var(--paper); border-bottom: 1px solid var(--line); box-shadow: 0 24px 40px -24px rgba(0, 0, 0, .35); }
   .main-nav.is-open { display: flex; }
@@ -361,6 +380,14 @@ h1, h2, h3, h4 { margin: 0; font-weight: 500; }
   .video-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 640px) {
+  .current-issue { padding: 28px 0 40px; }
+  .current-grid { grid-template-columns: 1fr; gap: 28px; }
+  .current-cover { max-width: 300px; width: 82%; margin: 0 auto; }
+  .story-row { grid-template-columns: 112px 1fr; gap: 16px; align-items: start; padding: 20px 0; }
+  .story-title { font-size: 22px; margin-bottom: 6px; }
+  .story-standfirst { font-size: 15px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .story-row .meta-listen { display: none; }
+  .home-past { padding-top: 48px; }
   .wrap, .wrap-text, .wrap-wide { padding: 0 18px; }
   .page-pad { padding-top: 36px; padding-bottom: 56px; }
   .issues-hero { padding: 28px 0 48px; }
