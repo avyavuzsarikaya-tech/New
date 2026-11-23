@@ -1,0 +1,104 @@
+# Yönetim paneli ayarı. __REPO__ ve __SITE_URL__ derleme sırasında otomatik doldurulur.
+backend:
+  name: github
+  repo: __REPO__
+  branch: main
+
+site_url: __SITE_URL__
+media_folder: public/uploads
+public_folder: /uploads
+
+collections:
+  - name: articles
+    label: Yazılar
+    label_singular: Yazı
+    folder: content/articles
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    identifier_field: title
+    summary: "{{title}} · {{lang}} · Sayı {{issue}}"
+    sortable_fields: [date, title, issue]
+    fields:
+      - { name: title, label: Başlık, widget: string }
+      - { name: lang, label: Dil, widget: select, default: tr, options: [{ label: Türkçe, value: tr }, { label: English, value: en }] }
+      - { name: issue, label: Sayı numarası, widget: number, value_type: int, hint: "Yazının ait olduğu sayı (ör. 8)" }
+      - name: section
+        label: Bölüm
+        widget: select
+        options:
+          - { label: "Adalet ve Haklar / Justice & Rights", value: justice }
+          - { label: "Çevre / Environment", value: environment }
+          - { label: "Teknoloji ve Etik / Technology & Ethics", value: technology }
+          - { label: "Toplum / Society", value: society }
+          - { label: "Ekonomi / Economy", value: economy }
+          - { label: "Barış ve Çatışma / Peace & Conflict", value: peace }
+      - { name: author, label: Yazar, widget: string, required: false }
+      - { name: date, label: Yayın tarihi, widget: datetime }
+      - { name: standfirst, label: Spot (kısa giriş), widget: text, required: false }
+      - { name: featured, label: Sayının kapak yazısı, widget: boolean, default: false, required: false }
+      - { name: image, label: Ana görsel (insan içermeyen), widget: image, required: false, hint: "Boş bırakılırsa otomatik manzara görseli kullanılır" }
+      - { name: image_caption, label: Ana görsel açıklaması, widget: string, required: false }
+      - { name: video, label: Video (YouTube bağlantısı), widget: string, required: false, hint: "Yazının içindeki medya panelinde gösterilir" }
+      - { name: video_caption, label: Video açıklaması, widget: string, required: false }
+      - { name: media_image, label: Ek görsel (video yoksa medya panelinde), widget: image, required: false }
+      - { name: media_caption, label: Ek görsel açıklaması, widget: string, required: false }
+      - { name: audio, label: Ses dosyası (MP3), widget: file, required: false, hint: "Boş bırakılırsa yazı tarayıcının sesiyle okunur" }
+      - name: sources
+        label: Kaynaklar
+        label_singular: Kaynak
+        widget: list
+        required: false
+        hint: "Metinde ilgili cümlenin sonuna [^1], [^2] yazarak kaynağa bağlayabilirsin"
+        fields:
+          - { name: author, label: Yazar / Kurum, widget: string, required: false }
+          - { name: title, label: Başlık, widget: string }
+          - { name: publication, label: Yayın, widget: string, required: false }
+          - { name: year, label: Yıl, widget: string, required: false }
+          - { name: url, label: Bağlantı, widget: string, required: false }
+      - { name: key, label: Çeviri eşleştirme anahtarı, widget: string, required: false, hint: "Bir yazının Türkçe ve İngilizce hâllerine aynı kelimeyi yaz (ör. su); dil düğmesi birbirine geçer" }
+      - { name: slug, label: Adres adı, widget: string, required: false, hint: "Boşsa başlıktan üretilir" }
+      - { name: art, label: Yer tutucu görsel türü, widget: select, required: false, options: [mountains, sea, city, arches, forest, desert, library, abstract] }
+      - { name: palette, label: Yer tutucu renk, widget: select, required: false, options: [dawn, dusk, ink, sage, sand, ocean, terracotta, night] }
+      - { name: draft, label: Taslak (yayınlama), widget: boolean, default: false, required: false }
+      - { name: body, label: Metin, widget: markdown }
+
+  - name: issues
+    label: Sayılar
+    label_singular: Sayı
+    folder: content/issues
+    create: true
+    identifier_field: title_tr
+    summary: "Sayı {{number}} · {{title_tr}}"
+    sortable_fields: [number, date]
+    fields:
+      - { name: number, label: Sayı numarası, widget: number, value_type: int }
+      - { name: date, label: Yayın tarihi, widget: datetime }
+      - { name: title_tr, label: Tema (Türkçe), widget: string }
+      - { name: title_en, label: Tema (İngilizce), widget: string }
+      - { name: note_tr, label: Editörden (Türkçe), widget: text, required: false }
+      - { name: note_en, label: Editörden (İngilizce), widget: text, required: false }
+      - { name: cover, label: Kapak görseli (insan içermeyen), widget: image, required: false, hint: "Boşsa otomatik kapak görseli kullanılır" }
+      - { name: art, label: Yer tutucu görsel türü, widget: select, required: false, options: [mountains, sea, city, arches, forest, desert, library, abstract] }
+      - { name: palette, label: Yer tutucu renk, widget: select, required: false, options: [dawn, dusk, ink, sage, sand, ocean, terracotta, night] }
+      - { name: draft, label: Taslak (yayınlama), widget: boolean, default: false, required: false }
+
+  - name: videos
+    label: Videolar
+    label_singular: Video
+    folder: content/videos
+    create: true
+    identifier_field: title_tr
+    summary: "{{title_tr}}"
+    fields:
+      - { name: title_tr, label: Başlık (Türkçe), widget: string }
+      - { name: title_en, label: Başlık (İngilizce), widget: string }
+      - { name: kind_tr, label: Tür (Türkçe), widget: string, required: false, hint: "Belgesel, Söyleşi, Anlatım…" }
+      - { name: kind_en, label: Tür (İngilizce), widget: string, required: false }
+      - { name: youtube, label: YouTube bağlantısı, widget: string, required: false, hint: "Boşsa 'Yakında' olarak görünür" }
+      - { name: duration, label: Süre, widget: string, required: false, hint: "ör. 12:30" }
+      - { name: image, label: Kapak görseli (insan içermeyen), widget: image, required: false }
+      - { name: featured, label: Öne çıkan video, widget: boolean, default: false, required: false }
+      - { name: order, label: Sıra, widget: number, value_type: int, required: false }
+      - { name: art, label: Yer tutucu görsel türü, widget: select, required: false, options: [mountains, sea, city, arches, forest, desert, library, abstract] }
+      - { name: palette, label: Yer tutucu renk, widget: select, required: false, options: [dawn, dusk, ink, sage, sand, ocean, terracotta, night] }
+      - { name: draft, label: Taslak (yayınlama), widget: boolean, default: false, required: false }
