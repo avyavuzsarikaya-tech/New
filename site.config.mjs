@@ -1,6 +1,6 @@
-// Sitenin genel ayarları. Dergi adı kesinleşince sadece "name" satırını değiştirmen yeterli.
+// Sitenin genel ayarları. Dergi adını değiştirmek için sadece "name" satırını değiştirmen yeterli.
 export default {
-  name: 'MAGAZINE NAME',
+  name: 'Automatic Paper',
 
   // Dergi dilleri. İlk dil ana adreste (/), diğerleri /tr/ gibi alt adreste yayınlanır.
   languages: ['en', 'tr'],

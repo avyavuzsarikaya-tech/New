@@ -1,6 +1,6 @@
 # Dergi sitesi
 
-Her insanı ilgilendiren meseleler üzerine yazan, İngilizce ve Türkçe yayın yapan dijital derginin sitesi. Dergi adı kesinleşene kadar sitede **MAGAZINE NAME** yazar; adı değiştirmek için `site.config.mjs` dosyasındaki `name` satırını değiştirmen yeterli.
+Her insanı ilgilendiren meseleler üzerine yazan, İngilizce ve Türkçe yayın yapan dijital derginin sitesi. Derginin adı **Automatic Paper**; adı değiştirmek için `site.config.mjs` dosyasındaki `name` satırını değiştirmen yeterli.
 
 ## Sitede neler var
 
