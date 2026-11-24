@@ -10,7 +10,7 @@
   --muted: #555555;
   --line: #ddd4c6;
   --line-dark: rgba(255, 255, 255, .14);
-  --serif-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --serif-display: 'Source Serif 4', Georgia, serif;
   --serif: 'Source Serif 4', Georgia, serif;
   --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --wrap: 1240px;
