@@ -335,4 +335,9 @@
     if (initial) { input.value = initial; load(run); }
     input.focus();
   }
+
+  // Dil seçim kutusu: seçilen dilin sayfasına geç
+  $$('[data-lang-select]').forEach(function (sel) {
+    sel.addEventListener('change', function () { if (sel.value) window.location.href = sel.value; });
+  });
 })();
